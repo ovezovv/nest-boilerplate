@@ -1,98 +1,223 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀 NestJS Boilerplate --- GraphQL + Prisma + PostgreSQL
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A production-ready NestJS boilerplate using:
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- ⚡ NestJS 11
+- 🧠 GraphQL (Apollo Driver, Code-First)
+- 🛢 PostgreSQL
+- 🔷 Prisma ORM v7
+- 🧩 Express 5
+- 🔐 Environment-based configuration
 
-## Description
+This project is designed to be clean, modern, and aligned with the
+latest stable ecosystem.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## 📌 Tech Stack & Versions
 
-```bash
-$ npm install
-```
+Package Version
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+Node.js 24.x LTS
+NestJS \^11.x
+@nestjs/graphql \^13.x
+@nestjs/apollo \^13.x
+GraphQL \^16.x
+Prisma \^7.x
+PostgreSQL 14+
+Express 5.x
+@as-integrations/express5 \^1.x
 
-# watch mode
-$ npm run start:dev
+---
 
-# production mode
-$ npm run start:prod
-```
+## 📁 Project Structure
 
-## Run tests
+    backend/
+    ├── prisma/
+    │   ├── schema.prisma
+    │   └── migrations/
+    ├── src/
+    │   ├── prisma/
+    │   │   └── prisma.service.ts
+    │   ├── app.module.ts
+    │   ├── app.resolver.ts
+    │   └── main.ts
+    ├── prisma.config.ts
+    ├── .env
+    ├── .env.example
+    └── package.json
 
-```bash
-# unit tests
-$ npm run test
+---
 
-# e2e tests
-$ npm run test:e2e
+## ⚙️ Environment Setup
 
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Create your environment file:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+cp .env.example .env
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### `.env.example`
 
-## Resources
+```env
+PORT=3000
+DATABASE_URL="postgresql://{db_user}:{db_user_password}@localhost:5432/{database_name}?schema=public"
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 🛢 PostgreSQL Setup
 
-## Support
+You can use:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Local PostgreSQL installation
+- Remote PostgreSQL server
+- Cloud PostgreSQL provider (Neon, Supabase, RDS, etc.)
 
-## Stay in touch
+Make sure:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Database exists
+- User has full privileges
+- `DATABASE_URL` is correct
 
-## License
+Example:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```env
+DATABASE_URL="postgresql://app:securepassword@localhost:5432/app_db?schema=public"
+```
+
+---
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+---
+
+## 🧬 Prisma Setup (v7)
+
+This boilerplate uses Prisma v7 with adapter-based configuration.
+
+### Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+### Run Initial Migration
+
+```bash
+npx prisma migrate dev --name init
+```
+
+### Open Prisma Studio
+
+```bash
+npx prisma studio
+```
+
+---
+
+## ▶️ Run Development Server
+
+```bash
+npm run start:dev
+```
+
+Server:
+
+http://localhost:3000
+
+GraphQL Playground:
+
+http://localhost:3000/graphql
+
+Test query:
+
+```graphql
+query {
+  health
+}
+```
+
+---
+
+## 🏗 Architecture Notes
+
+### Prisma v7 Adapter-Based Client
+
+This project uses Prisma's new driver adapter system:
+
+```ts
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Pool } from 'pg';
+
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+
+super({ adapter });
+```
+
+This avoids deprecated configuration patterns and aligns with Prisma v7
+best practices.
+
+---
+
+## 🔐 Production Recommendations
+
+For production deployments:
+
+- Use managed PostgreSQL (Neon, Supabase, AWS RDS, etc.)
+- Disable GraphQL Playground in production
+- Enable:
+  - Helmet
+  - CORS configuration
+  - Global validation pipes
+- Add structured logging (Winston or Pino)
+- Use environment-based configs
+- Enable graceful shutdown hooks
+- Add rate limiting
+- Use proper CI/CD workflow
+
+---
+
+## 📜 Available Scripts
+
+```bash
+npm run start:dev      # Development mode
+npm run build          # Build production bundle
+npm run start:prod     # Start production build
+
+npm run prisma:generate
+npm run prisma:migrate
+npm run prisma:studio
+```
+
+---
+
+## 🎯 Ideal For
+
+- CMS backends
+- SaaS APIs
+- Admin dashboards
+- Multi-language content APIs
+- Scalable GraphQL backends
+- Clean architecture starters
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+## ⭐ Contributing
+
+Feel free to fork, improve, and submit pull requests.
+
+If this boilerplate helps you, consider giving it a star ⭐
